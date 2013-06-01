@@ -71,6 +71,9 @@ public class GetDadosFrmCadastroPessoa extends FrmPessoaCadastro{
 		return id;
 	}
 	
+	/**
+	 * Listar no console os registro no banco da tabela Pessoa
+	 */
 	public static void listar(){
 		List lista = new DataBaseManager().listarPessoa();
 		
