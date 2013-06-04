@@ -24,9 +24,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 
 import controle.ControleEntidade;
+import controle.GetDadosFrmCadastroPessoa;
 import controle.messages.I18NMessages;
 
-import modelo.GetDadosFrmCadastroPessoa;
 import modelo.Pessoa;
 import javax.swing.DefaultComboBoxModel;
 
@@ -98,6 +98,7 @@ public static I18NMessages cfaMessages = new I18NMessages();
 		setTitle(cfaMessages.appGetMessage("frame.cadastro.pessoa.titulo"));
 		setResizable(false);
 		GetDadosFrmCadastroPessoa.populaCampo();
+		GetDadosFrmCadastroPessoa.populaComboVinculo();
 		indice = Integer.parseInt(sbTxtTotal.getText());
 		ValidFrmPessoaCadastro.validaTipoPessoa(false);
 		tfGerencia.setBounds(151, 320, 253, 20);
