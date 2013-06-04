@@ -10,7 +10,7 @@ public class ControleTeste {
 	ControleEntidade ControlEntity;
 	
 	public void imprime(){
-		List<Pessoa> listaPessoa = new ControleEntidade().consultaPessoa();
+		List<Pessoa> listaPessoa = new ControleEntidade().conListPessoaaPessoa();
 		
 		for (Iterator it = listaPessoa.iterator(); it.hasNext();) {
 			Pessoa pessoa = (Pessoa) it.next();
