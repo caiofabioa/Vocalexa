@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import modelo.Pessoa;
-
+import modelo.TipoVinculo;
 import visao.frames.FrmPessoaCadastro;
 
 @SuppressWarnings("serial")
@@ -30,37 +30,13 @@ public class GetDadosFrmCadastroPessoa extends FrmPessoaCadastro{
 		p.setSexo(cbSexo.getSelectedItem().toString());
 		p.setTelefone(tfTelefone.getText());
 		p.setVinculo(TipoVinculoCombo);
-		if(cbTipoVinculo.getSelectedItem() != null){
-			p.setTipoVinculo(cbTipoVinculo.getSelectedItem().toString());
-		}else{
-			p.setTipoVinculo("");
-		}
-		if(tfCracha.getText().equals(null)){
-			p.setCracha(tfCracha.getText());
-		}else{
-			p.setCracha("");
-		}
-		if(tfFuncao.getText().equals(null)){
-			p.setFuncao(tfFuncao.getText());
-		}else{
-			p.setFuncao("");
-		}
-		if(tfSetor.getText().equals(null)){
-			p.setSetor(tfSetor.getText());
-		}else{
-			p.setSetor("");
-		}
-		if(tfLider.getText().equals(null)){
-			p.setLider(tfLider.getText());
-		}else{
-			p.setLider("");
-		}
-		if(tfGerencia.getText().equals(null)){
-			p.setGerencia(tfGerencia.getText());
-		}else{
-			p.setGerencia("");
-		}
-		
+		p.setTipoVinculo(cbTipoVinculo.getSelectedItem().toString());
+		p.setCracha(tfCracha.getText());
+		p.setFuncao(tfFuncao.getText());
+		p.setSetor(tfSetor.getText());
+		p.setLider(tfLider.getText());
+		p.setGerencia(tfGerencia.getText());
+
 		dbm.gravarPessoa(p);
 		
 	}
@@ -119,5 +95,16 @@ public class GetDadosFrmCadastroPessoa extends FrmPessoaCadastro{
 	public static int ultimo(){
 		return 0;
 	}
-
+	
+	public static void populaComboVinculo() {
+		List<TipoVinculo> listVinculo = controleEntidade.listaVinculo();
+		if (listVinculo != null) {
+			for (Iterator it = listVinculo.iterator(); it.hasNext();) {
+				TipoVinculo tv = (TipoVinculo) it.next();
+					cbTipoVinculo.addItem(tv.getDescricao());
+			}
+		}else{
+			cbTipoVinculo.addItem("Sem Vinculos");
+		}
+	}
 }

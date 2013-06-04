@@ -4,6 +4,7 @@ import java.util.List;
 
 import modelo.Exame;
 import modelo.Pessoa;
+import modelo.TipoVinculo;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
@@ -12,6 +13,7 @@ import com.db4o.ext.Db4oException;
 public class DataBaseManager {
 
 	public static ObjectContainer db;
+	private List<TipoVinculo> listVinculo;
 
 	public DataBaseManager() {
 		db = Db4oEmbedded.openFile("bancoVocalexa.xdata");
@@ -72,6 +74,10 @@ public class DataBaseManager {
 		} else {
 			throw new Db4oException().getCause();
 		}
+	}
+	
+	public List listaVinculos(){
+			return db.queryByExample(TipoVinculo.class);
 	}
 	
 }
