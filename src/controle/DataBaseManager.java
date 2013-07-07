@@ -12,11 +12,13 @@ import com.db4o.ext.Db4oException;
 
 public class DataBaseManager {
 
-	public static ObjectContainer db;
+	protected static ObjectContainer db;
 	private List<TipoVinculo> listVinculo;
 
 	public DataBaseManager() {
-		db = Db4oEmbedded.openFile("bancoVocalexa.xdata");
+		if(db==null){
+			db = Db4oEmbedded.openFile("bancoVocalexa.xdata");
+		}
 	}
 
 	public void gravarPessoa(Object entidade) {

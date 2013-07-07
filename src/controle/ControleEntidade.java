@@ -9,6 +9,7 @@ import com.db4o.ext.Db4oException;
 
 public class ControleEntidade {
 	
+	static final String ST_TIPOVINCULO_SEM_VINCULOS = "Sem vinculos";
 	private static DataBaseManager dbm;
 	public static List<Pessoa> ListPessoa;
 	public static List<TipoVinculo> ListVinculo;

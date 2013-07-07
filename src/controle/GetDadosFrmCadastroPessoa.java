@@ -72,8 +72,6 @@ public class GetDadosFrmCadastroPessoa extends FrmPessoaCadastro{
 				tfDataNascimento.setText(pessoa.getDataNascimento());
 				tfRg.setText(pessoa.getRg());
 				cbSexo.setSelectedItem(pessoa.getSexo());
-		}else if(pessoaLista.size()==0){
-			sbTxtTotal.setText(String.valueOf(pessoaLista.size()));
 		}
 	}
 	
@@ -104,7 +102,7 @@ public class GetDadosFrmCadastroPessoa extends FrmPessoaCadastro{
 					cbTipoVinculo.addItem(tv.getDescricao());
 			}
 		}else{
-			cbTipoVinculo.addItem("Sem Vinculos");
+			cbTipoVinculo.addItem(controleEntidade.ST_TIPOVINCULO_SEM_VINCULOS);
 		}
 	}
 }

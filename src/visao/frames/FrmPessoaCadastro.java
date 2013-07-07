@@ -39,7 +39,6 @@ public static I18NMessages cfaMessages = new I18NMessages();
 
 	final JPanel contentPane;
 	final JPanel panel_1 = new JPanel();
-
 	final JRadioButton rdbtnPessoaFisica = new JRadioButton(cfaMessages.appGetMessage("frame.cadastro.pessoa.pf"));
 	final JRadioButton rdbtnPessoaJurdica = new JRadioButton(cfaMessages.appGetMessage("frame.cadastro.pessoa.pj"));
 
