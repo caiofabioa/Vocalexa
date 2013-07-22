@@ -4,11 +4,9 @@ import java.util.Properties;
 
 import javax.swing.UIManager;
 
-import visao.frames.FrmPrincipal;
+import visao.frames.PrincipalFrame;
 
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
-
-import controle.messages.I18NMessages;
 
 public class AppStart {
 
@@ -24,7 +22,7 @@ public class AppStart {
 			TextureLookAndFeel.setTheme(props);
 			UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
 			// Abre aplicação
-			new FrmPrincipal();
+			new PrincipalFrame();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 
