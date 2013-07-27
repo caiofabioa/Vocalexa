@@ -112,7 +112,7 @@ public class PrincipalFrame extends JFrame {
 		btnInicialAddPessoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new CadastroPessoaFrame();
+					new PessoaCadastroFrame();
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Não foi possível abrir Cadastro de Pessoa\n"+e.getMessage());
 				}

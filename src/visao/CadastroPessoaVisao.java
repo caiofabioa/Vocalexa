@@ -3,10 +3,10 @@ package visao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import visao.frames.CadastroPessoaFrame;
+import visao.frames.PessoaCadastroFrame;
 
 @SuppressWarnings("serial")
-public class CadastroPessoaVisao extends CadastroPessoaFrame{
+public class CadastroPessoaVisao extends PessoaCadastroFrame{
 	
 	public CadastroPessoaVisao() throws Exception{
 		super();

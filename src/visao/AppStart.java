@@ -4,9 +4,9 @@ import java.util.Properties;
 
 import javax.swing.UIManager;
 
-import visao.frames.PrincipalFrame;
-
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
+
+import visao.frames.PrincipalFrame;
 
 public class AppStart {
 

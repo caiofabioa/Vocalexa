@@ -2,14 +2,14 @@ package visao;
 
 import java.text.ParseException;
 
-import visao.frames.CadastroPessoaFrame;
+import visao.frames.PessoaCadastroFrame;
 
 public class AbrirFramesBotoes {
 
-	public CadastroPessoaFrame abreFramePessoa() throws ParseException {
-		CadastroPessoaFrame fpc = null;
+	public PessoaCadastroFrame abreFramePessoa() throws ParseException {
+		PessoaCadastroFrame fpc = null;
 		try {
-			fpc = new CadastroPessoaFrame();
+			fpc = new PessoaCadastroFrame();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

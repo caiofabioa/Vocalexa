@@ -1,9 +1,9 @@
 package visao;
 
-import visao.frames.CadastroVinculoFrame;
+import visao.frames.VinculoCadastroFrame;
 
 @SuppressWarnings("serial")
-public class CadastroVinculoVisao extends CadastroVinculoFrame{
+public class CadastroVinculoVisao extends VinculoCadastroFrame{
 	
 	public CadastroVinculoVisao(){
 		super();

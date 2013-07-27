@@ -1,18 +1,23 @@
 package visao;
 
-import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-import visao.frames.CadastroExameFrame;
+import visao.frames.ExameCadastroFrame;
 
 @SuppressWarnings("serial")
-public class CadastroExameVisao extends CadastroExameFrame {
+public class CadastroExameVisao extends ExameCadastroFrame {
+	
+	private JTabbedPane _jtpExame = jtpExame;
 	
 	public CadastroExameVisao(){
 		super();
@@ -20,34 +25,37 @@ public class CadastroExameVisao extends CadastroExameFrame {
 		setVisible(true);
 		setLocationRelativeTo(null);
 		this.setLocationRelativeTo(null);
-		desabilitaHabilitaCampos(false);
+		habilitaCampos(_jtpExame, false);
+		
+		btnEditar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				habilitaCampos(_jtpExame, true);
+			}
+		});
 	}
 	
-	public void desabilitaHabilitaCampos(Boolean set){
-		Component[] componente = this.jtpExame.getComponents();
-		Component[] campo;
-		for(int i = 0 ; i < componente.length ; i++){
-			if(componente[i] instanceof JPanel){
-				JPanel painel = (JPanel) componente[i];
-				campo = painel.getComponents();
-				for(int c = 0 ; c < campo.length ; c++){
-					if(campo[c] instanceof JPanel){
-						JPanel novoPainel = (JPanel) campo[c];
-						Component[] novoCampo = novoPainel.getComponents();
-						for(int a=0 ; a < novoCampo.length ; a++){
-							if(novoCampo[a] instanceof JTextField ||
-									novoCampo[a] instanceof JCheckBox ||
-									novoCampo[a] instanceof JRadioButton ||
-									novoCampo[a] instanceof JComboBox ||
-									novoCampo[a] instanceof JFormattedTextField) {
-								novoCampo[a].setEnabled(set);
-							}
-						}
-					}
-				}
+	/**
+	 *  \/ METODOS \/
+	 *  
+	 */
+	
+	/**
+	 * Habilita ou desabilita todos os campos do Frame Exames
+	 * @param componente
+	 * @param habilitar
+	 */
+	public static void habilitaCampos(JComponent componente, boolean habilitar) {
+		for (int x = 0; x < componente.getComponentCount(); x++) {
+			if (componente.getComponent(x) instanceof JTextField
+					|| componente.getComponent(x) instanceof JCheckBox
+					|| componente.getComponent(x) instanceof JRadioButton
+					|| componente.getComponent(x) instanceof JFormattedTextField
+					|| componente.getComponent(x) instanceof JComboBox) {
+				componente.getComponent(x).setEnabled(habilitar);
+			}else if (componente.getComponent(x) instanceof JPanel){
+				habilitaCampos((JComponent) componente.getComponent(x), habilitar);
 			}
-			
 		}
 	}
-
 }

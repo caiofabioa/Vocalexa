@@ -1,6 +1,5 @@
 package controle.messages;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class I18NMessages {
