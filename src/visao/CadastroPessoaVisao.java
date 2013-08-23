@@ -3,39 +3,58 @@ package visao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JComponent;
+import controle.ControleTelaComponentes;
 import visao.frames.PessoaCadastroFrame;
 
 @SuppressWarnings("serial")
 public class CadastroPessoaVisao extends PessoaCadastroFrame{
+	private ControleTelaComponentes control = new ControleTelaComponentes();
 	
 	public CadastroPessoaVisao() throws Exception{
 		super();
+		getFrames();
+		setVisible(true);
+		setLocationRelativeTo(null);
 		this.setLocationRelativeTo(null);
 		
 		btnNovoRegistro.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				habilitaCampos(true);
+				habilitaConteudo(formularioPane, true);
 			}
+
+		});
+
+		btnAlterarRegistro.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				imprimeCamposConteudo(formularioPane);
+			}
+			
+		});
+
+		btnSalvarRegistro.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				habilitaConteudo(formularioPane, false);
+			}
+			
+		});
+
+		btnSair.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+			
 		});
 	}
-	
-	/**
-	 * METODOS
-	 */
-	public void habilitaCampos(Boolean set) {
-		this.rdbtnPessoaFisica.setEnabled(set);
-		this.rdbtnPessoaJurdica.setEnabled(set);
-		this.tfCracha.setEnabled(set);
-		this.tfDataNascimento.setEnabled(set);
-		this.tfFuncao.setEnabled(set);
-		this.tfGerencia.setEnabled(set);
-		this.tfLider.setEnabled(set);
-		this.tfNomeRS.setEnabled(set);
-		this.tfRg.setEnabled(set);
-		this.tfSetor.setEnabled(set);
-		this.tfTelefone.setEnabled(set);
-		this.cbSexo.setEnabled(set);
-	} 
 
+	private void habilitaConteudo(JComponent formularioPane, boolean b) {
+		control.habilitaCampos(formularioPane, b);
+	}
+
+	private void imprimeCamposConteudo(JComponent formularioPane) {
+		control.imprimeCampos(formularioPane);
+	}
 }

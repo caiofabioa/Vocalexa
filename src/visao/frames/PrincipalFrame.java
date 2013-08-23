@@ -19,7 +19,6 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import visao.AbrirFramesBotoes;
 import visao.CadastroExameVisao;
 import visao.CadastroPessoaVisao;
 import visao.CadastroVinculoVisao;
@@ -29,7 +28,6 @@ import controle.messages.I18NMessages;
 public class PrincipalFrame extends JFrame {
 
 	private JPanel contentPane;
-	public AbrirFramesBotoes abrirFrame;
 	static I18NMessages CfaMessage = new I18NMessages();
 
 	/**
@@ -70,7 +68,7 @@ public class PrincipalFrame extends JFrame {
 		btnMnCadastrosPessoas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new CadastroPessoaVisao();
+					new CadastroExameVisao();
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Não foi possível abrir Cadastro de Pessoa\n"+e.getMessage());
 				}
@@ -112,7 +110,7 @@ public class PrincipalFrame extends JFrame {
 		btnInicialAddPessoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new PessoaCadastroFrame();
+					new CadastroPessoaVisao();
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Não foi possível abrir Cadastro de Pessoa\n"+e.getMessage());
 				}
@@ -120,6 +118,19 @@ public class PrincipalFrame extends JFrame {
 		});
 		btnInicialAddPessoa.setIcon(new ImageIcon(PrincipalFrame.class.getResource("/imagens/vocalexa64x64/ico_pessoa (3).png")));
 		btnInicialAddPessoa.setBorder(null);
+		btnInicialAddPessoa.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try{
+					new PessoaCadastroFrame();
+				}catch(Exception e){
+					JOptionPane.showMessageDialog(null, "Não foi possível abrir a tela de cadastro\n"
+							+ e.getMessage());
+				}
+				
+			}
+		});
 		toolBar.add(btnInicialAddPessoa);
 		
 		
